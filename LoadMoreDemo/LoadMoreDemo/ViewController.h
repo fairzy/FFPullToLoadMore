@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSMutableArray * dataSource;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) FFPullToLoadMoreView * loadMoreView;
 
 @end

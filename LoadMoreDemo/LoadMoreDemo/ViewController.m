@@ -27,9 +27,9 @@
     self.tableView.tableFooterView = footview;
     self.loadMoreView = footview;
     
-    _dataSource = [NSMutableArray arrayWithCapacity:50];
+    self.dataSource = [NSMutableArray arrayWithCapacity:50];
     for (int i = 0; i < 50; i++) {
-        [_dataSource addObject: [NSNumber numberWithInt:i]];
+        [self.dataSource addObject: [NSNumber numberWithInt:i]];
     }
 }
 
@@ -56,7 +56,7 @@
 
 #pragma mark - UITableView
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _dataSource.count;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -72,11 +72,11 @@
 #pragma mark - UIScrollViewDelegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [_loadMoreView ffLoadMoreScrollViewDidScroll:scrollView];
+    [self.loadMoreView ffLoadMoreScrollViewDidScroll:scrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-	[_loadMoreView ffLoadMoreScrollViewDidEndDragging:scrollView];
+	[self.loadMoreView ffLoadMoreScrollViewDidEndDragging:scrollView];
 }
 
 #pragma mark - Load more Methods
